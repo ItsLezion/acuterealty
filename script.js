@@ -1,6 +1,4 @@
-  // ============================
-    // SLIDESHOW
-    // ============================
+
     const slides = document.querySelectorAll('.slides');
 
     if (slides.length > 0) {
@@ -25,9 +23,7 @@
       showSlides();
     }
 
-    // ============================
-    // IMAGE EXPAND MODAL
-    // ============================
+
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
     const closeBtn = document.querySelector('.close');
@@ -52,9 +48,6 @@
     };
 
 
-    // ============================
-    // PROPERTY COMPARE
-    // ============================
     const compareButtons = document.querySelectorAll('.compare-btn');
     const compareList = document.getElementById('compare-list');
     const compareNavItem = document.querySelector('.nav-compare-item');
@@ -110,9 +103,7 @@
       });
     });
 
-    // ============================
-    // BOOK VIEWING BUTTON
-    // ============================
+
     const viewingButtons = document.querySelectorAll('.view-btn');
 
     viewingButtons.forEach(button => {
@@ -130,9 +121,7 @@
       });
     });
 
-    // ============================
-    // CONTACT FORM
-    // ============================
+
     const form = document.querySelector('form');
 
     if (form) {
@@ -141,9 +130,6 @@
       });
     }
 
-    // ============================
-    // PROPERTY FILTERS (All / Houses / Land)
-    // ============================
     const filterBtns = document.querySelectorAll('.filter-btn');
     const propertyCards = document.querySelectorAll('.property-card');
 
@@ -165,3 +151,9 @@
         applyFilter(btn.dataset.filter);
       });
     });
+
+   function openEmail() {
+      var Email = "YWN1dGVyZWFsdHkyMDA0QGdtYWlsLmNvbQ==";
+      var decodedEmail = atob(Email);
+      window.location.href = "mailto:" + decodedEmail;
+    }
