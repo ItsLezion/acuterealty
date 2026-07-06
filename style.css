@@ -353,6 +353,36 @@ nav a:hover {
   padding: 60px 40px;
 }
 
+.compare-section-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.clear-compare-btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 999px;
+  background: #f5835a;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.clear-compare-btn:hover:not(:disabled) {
+  background: #e56d3f;
+  transform: translateY(-1px);
+}
+
+.clear-compare-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 #favorites-list,
 #compare-list {
   display: grid;
