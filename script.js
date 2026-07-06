@@ -51,6 +51,7 @@
     const compareButtons = document.querySelectorAll('.compare-btn');
     const compareList = document.getElementById('compare-list');
     const compareNavItem = document.querySelector('.nav-compare-item');
+    const clearCompareBtn = document.getElementById('clear-compare-btn');
     const selectedForCompare = new Set();
 
     function syncCompareButtons() {
@@ -68,6 +69,20 @@
       });
     }
 
+    function updateCompareControls() {
+      syncCompareButtons();
+      clearCompareBtn.disabled = selectedForCompare.size === 0;
+    }
+
+    function clearCompareSelection() {
+      compareList.innerHTML = '';
+      selectedForCompare.clear();
+      compareNavItem?.classList.remove('active');
+      updateCompareControls();
+    }
+
+    clearCompareBtn?.addEventListener('click', clearCompareSelection);
+
     compareButtons.forEach(button => {
       button.addEventListener('click', () => {
         const card = button.closest('.property-card, .land-card');
@@ -80,7 +95,7 @@
         if (existingItem) {
           existingItem.remove();
           selectedForCompare.delete(propertyId);
-          syncCompareButtons();
+          updateCompareControls();
           return;
         }
 
@@ -99,7 +114,7 @@
         compareNavItem?.classList.remove('active');
         void compareNavItem?.offsetWidth;
         compareNavItem?.classList.add('active');
-        syncCompareButtons();
+        updateCompareControls();
       });
     });
 
