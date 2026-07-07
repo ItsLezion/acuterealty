@@ -215,6 +215,7 @@ nav a:hover {
 
 .property-image-container {
   padding: 15px;
+  position: relative;
 }
 
 .land-image-container {
@@ -227,6 +228,47 @@ nav a:hover {
   object-fit: cover;
   border-radius: 10px;
   cursor: pointer;
+}
+
+
+.image-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(17, 17, 17, 0.75);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 3;
+}
+
+.property-image-container:hover .image-nav-btn,
+.property-image-container:focus-within .image-nav-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.image-nav-btn:hover {
+  transform: translateY(-50%) scale(1.05);
+  background: rgba(17, 17, 17, 0.9);
+}
+
+.image-nav-btn.prev {
+  left: 24px;
+}
+
+.image-nav-btn.next {
+  right: 24px;
 }
 
 .thumbnail-row {
@@ -247,6 +289,12 @@ nav a:hover {
 
 .thumbnail-row img:hover {
   transform: scale(1.05);
+}
+
+
+.thumbnail-row img.active-thumbnail {
+  outline: 2px solid #f5835a;
+  outline-offset: 2px;
 }
 
 .property-details {
