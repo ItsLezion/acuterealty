@@ -59,8 +59,8 @@ header {
     opacity: 1;
   }
   100% {
-    transform: translateX(0);
-    opacity: 0;
+    transform: translateX(28pc);
+    opacity: 1;
   }
 }
 
