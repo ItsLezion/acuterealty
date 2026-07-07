@@ -31,10 +31,37 @@ header {
   font-weight: bold;
 }
 
+.logo-text {
+  display: inline-block;
+  white-space: nowrap;
+  transform: translateX(0);
+  opacity: 1;
+  animation: brandSlideOut 7s ease forwards;
+}
+
 .logo-image {
   height: 40px;
   width: auto;
   border-radius: 6px;
+}
+
+@keyframes brandSlideOut {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  14% {
+    transform: translateX(28px);
+    opacity: 1;
+  }
+  86% {
+    transform: translateX(28px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 0;
+  }
 }
 
 nav ul {
