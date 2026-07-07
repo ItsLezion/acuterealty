@@ -23,6 +23,64 @@
       showSlides();
     }
 
+// ============================
+    // PROPERTY IMAGE NAVIGATION
+    // ============================
+    const propertyImageContainers = document.querySelectorAll('.property-image-container');
+
+    propertyImageContainers.forEach(container => {
+      const mainImage = container.querySelector('.main-image');
+      const thumbnails = Array.from(container.querySelectorAll('.thumbnail-row img'));
+
+      if (!mainImage || thumbnails.length === 0) return;
+
+      const prevButton = document.createElement('button');
+      prevButton.type = 'button';
+      prevButton.className = 'image-nav-btn prev';
+      prevButton.setAttribute('aria-label', 'Show previous image');
+      prevButton.innerHTML = '&larr;';
+
+      const nextButton = document.createElement('button');
+      nextButton.type = 'button';
+      nextButton.className = 'image-nav-btn next';
+      nextButton.setAttribute('aria-label', 'Show next image');
+      nextButton.innerHTML = '&rarr;';
+
+      container.appendChild(prevButton);
+      container.appendChild(nextButton);
+
+      let activeIndex = -1;
+
+      function updateActiveImage(index) {
+        const safeIndex = (index + thumbnails.length) % thumbnails.length;
+        activeIndex = safeIndex;
+
+        mainImage.src = thumbnails[activeIndex].src;
+        mainImage.alt = thumbnails[activeIndex].alt || mainImage.alt;
+
+        thumbnails.forEach((thumb, thumbIndex) => {
+          thumb.classList.toggle('active-thumbnail', thumbIndex === activeIndex);
+        });
+      }
+
+      prevButton.addEventListener('click', event => {
+        event.stopPropagation();
+        updateActiveImage(activeIndex - 1);
+      });
+
+      nextButton.addEventListener('click', event => {
+        event.stopPropagation();
+        updateActiveImage(activeIndex + 1);
+      });
+
+      thumbnails.forEach((thumb, index) => {
+        thumb.addEventListener('click', event => {
+          event.stopPropagation();
+          updateActiveImage(index);
+        });
+      });
+    });
+
 
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
