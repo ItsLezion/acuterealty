@@ -106,6 +106,30 @@
     };
 
 
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const toggleIcon = darkModeToggle?.querySelector('.toggle-icon');
+    const toggleLabel = darkModeToggle?.querySelector('.toggle-label');
+
+    function applyTheme(theme) {
+      const isDark = theme === 'dark';
+      document.body.classList.toggle('dark-mode', isDark);
+
+      if (darkModeToggle) {
+        darkModeToggle.setAttribute('aria-pressed', String(isDark));
+        if (toggleIcon) toggleIcon.textContent = isDark ? '☀️' : '🌙';
+        if (toggleLabel) toggleLabel.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+      }
+    }
+
+    const savedTheme = localStorage.getItem('acuterealty-theme');
+    applyTheme(savedTheme || 'light');
+
+    darkModeToggle?.addEventListener('click', () => {
+      const nextTheme = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
+      localStorage.setItem('acuterealty-theme', nextTheme);
+      applyTheme(nextTheme);
+    });
+
     const compareButtons = document.querySelectorAll('.compare-btn');
     const compareList = document.getElementById('compare-list');
     const compareNavItem = document.querySelector('.nav-compare-item');
