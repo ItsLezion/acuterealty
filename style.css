@@ -9,6 +9,12 @@
 body {
   background: #f5f5f5;
   color: #222;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+  background: #111827;
+  color: #f5f5f5;
 }
 
 header {
@@ -64,6 +70,14 @@ header {
   }
 }
 
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: auto;
+}
+
 nav ul {
   display: flex;
   gap: 25px;
@@ -76,6 +90,25 @@ nav a {
   transition: 0.3s;
 }
 
+.dark-mode-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: #222;
+  color: white;
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.dark-mode-toggle:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+}
+
 nav a:hover {
   color: gold;
   border-bottom: 2px solid rgb(235, 87, 87);
@@ -84,6 +117,39 @@ nav a:hover {
 .nav-compare-item.active a {
   color: #ffe066;
   animation: comparePulse 0.8s ease-in-out 2;
+}
+
+body.dark-mode header {
+  background: #1f2937;
+}
+
+body.dark-mode .property-card,
+body.dark-mode .land-card,
+body.dark-mode .filter-btn,
+body.dark-mode .compare-section,
+body.dark-mode .contact-section,
+body.dark-mode footer {
+  background: #1f2937;
+  color: #f9fafb;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-mode .card-buttons {
+  border-top-color: #4b5563;
+}
+
+body.dark-mode .compare-btn,
+body.dark-mode .view-btn,
+body.dark-mode .filter-btn,
+body.dark-mode .dark-mode-toggle {
+  background: #374151;
+  color: #f9fafb;
+  border-color: #4b5563;
+}
+
+body.dark-mode .dark-mode-toggle {
+  background: #f5f5f5;
+  color: #111;
 }
 
 @keyframes comparePulse {
