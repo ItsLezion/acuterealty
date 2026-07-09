@@ -623,7 +623,8 @@ form button {
     justify-content: center;
   }
 
-  .property-grid {
+  .property-grid,
+  .land-grid {
     grid-template-columns: 1fr;
   }
 
