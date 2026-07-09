@@ -221,6 +221,14 @@
         void compareNavItem?.offsetWidth;
         compareNavItem?.classList.add('active');
         updateCompareControls();
+          
+        if (selectedForCompare.size === 2) {
+          document.getElementById('compare')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          const compareSection = document.querySelector('.compare-section');
+          compareSection?.classList.remove('section-highlight');
+          void compareSection?.offsetWidth;
+          compareSection?.classList.add('section-highlight');
+        }
       });
     });
 
