@@ -176,16 +176,32 @@
     function updateCompareControls() {
       syncCompareButtons();
       clearCompareBtn.disabled = selectedForCompare.size === 0;
-        const compareSection = document.querySelector('.compare-section');
+      const compareSection = document.querySelector('.compare-section');
       compareSection?.classList.toggle('is-empty', selectedForCompare.size === 0);
     }
 
     function clearCompareSelection() {
-      compareList.innerHTML = '';
-      selectedForCompare.clear();
-      compareNavItem?.classList.remove('active');
-      updateCompareControls();
+      if (!clearCompareBtn || clearCompareBtn.disabled) return;
+
+      const compareSection = document.querySelector('.compare-section');
+      clearCompareBtn.classList.remove('is-clearing');
+      compareSection?.classList.remove('compare-resetting');
+      void clearCompareBtn.offsetWidth;
+      clearCompareBtn.classList.add('is-clearing');
+      compareSection?.classList.add('compare-resetting');
+      clearCompareBtn.textContent = 'Clearing...';
+
+      window.setTimeout(() => {
+        compareList.innerHTML = '';
+        selectedForCompare.clear();
+        compareNavItem?.classList.remove('active');
+        clearCompareBtn.textContent = 'Clear';
+        clearCompareBtn.classList.remove('is-clearing');
+        compareSection?.classList.remove('compare-resetting');
+        updateCompareControls();
+      }, 450);
     }
+
 
     clearCompareBtn?.addEventListener('click', clearCompareSelection);
 
