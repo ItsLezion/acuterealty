@@ -181,25 +181,10 @@
     }
 
     function clearCompareSelection() {
-            if (!clearCompareBtn || clearCompareBtn.disabled) return;
-
-      const compareSection = document.querySelector('.compare-section');
-      clearCompareBtn.classList.remove('is-clearing');
-     compareSection?.classList.remove('compare-resetting');
-      void clearCompareBtn.offsetWidth;
-      clearCompareBtn.classList.add('is-clearing');
-     compareSection?.classList.add('compare-resetting');
-      clearCompareBtn.textContent = 'Clearing...';
-
-     window.setTimeout(() => {
       compareList.innerHTML = '';
       selectedForCompare.clear();
       compareNavItem?.classList.remove('active');
-        clearCompareBtn.textContent = 'Clear Comparison';
-        clearCompareBtn.classList.remove('is-clearing');
-        compareSection?.classList.remove('compare-resetting');
       updateCompareControls();
-          }, 450);
     }
 
     clearCompareBtn?.addEventListener('click', clearCompareSelection);
