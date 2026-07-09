@@ -751,31 +751,40 @@ footer {
 .socialIcons {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 18px;
   margin-top: 10px;
 }
 
 .socialIcons a {
+    display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
   text-decoration: none;
-  padding: 10px;
   border-radius: 50%;
-  background-color: white;
-  margin: 10px; 
+  background: linear-gradient(135deg, #ffffff 0%, #f7f7f7 100%);
+  color: #222;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  margin: 10px;
 }
 
 .socialIcons a i {
-  color: #222;
-  font-size: 2em;
-  transition: 0.3s;
-  opacity: 0.9;
+    font-size: 1.25rem;
+  transition: color 0.25s ease;
 }
 
-.socialIcons a:hover {
-  background-color: #222;
-  transition: 0.5s;
-}
 
-.socialIcons a:hover i {
+ .socialIcons a:hover,
+.socialIcons a:focus-visible {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #f5835a 0%, #ff9f6e 100%);
   color: white;
-  transition: 0.5s;
+}
+
+.socialIcons a:hover i,
+.socialIcons a:focus-visible i {
+  color: white;
 }
