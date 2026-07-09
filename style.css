@@ -183,30 +183,9 @@ body.dark-mode .dark-mode-toggle {
   100% { box-shadow: 0 0 0 0 rgba(245, 131, 90, 0); transform: scale(1); }
 }
 
-@keyframes clearComparePulse {
-  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245, 131, 90, 0.25); background: #f5835a; }
-  50% { transform: scale(0.97); box-shadow: 0 0 0 12px rgba(245, 131, 90, 0.08); background: #ff8f5d; }
-  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245, 131, 90, 0); background: #f5835a; }
-}
-
-@keyframes compareResetGlow {
-  0% { background-color: rgba(245, 131, 90, 0.08); }
-  50% { background-color: rgba(245, 131, 90, 0.18); }
-  100% { background-color: transparent; }
-
 .section-highlight {
   animation: sectionPulse 0.8s ease-out;
 }
-
-.clear-compare-btn.is-clearing {
-  animation: clearComparePulse 0.6s ease-out;
-}
-
-
-.compare-section.compare-resetting {
-  animation: compareResetGlow 0.6s ease-out;
-}
-
 /* SLIDESHOW */
 .slideshow {
   width: 100%;
