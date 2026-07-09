@@ -154,6 +154,8 @@
     function updateCompareControls() {
       syncCompareButtons();
       clearCompareBtn.disabled = selectedForCompare.size === 0;
+        const compareSection = document.querySelector('.compare-section');
+      compareSection?.classList.toggle('is-empty', selectedForCompare.size === 0);
     }
 
     function clearCompareSelection() {
