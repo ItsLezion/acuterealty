@@ -494,6 +494,71 @@ body.dark-mode .dark-mode-toggle {
   padding: 60px 40px;
 }
 
+
+.compare-section.is-empty {
+  display: none;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 32px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.contact-eyebrow {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #f5835a;
+  margin-bottom: 8px;
+}
+
+.contact-card h2 {
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.contact-copy {
+  color: #555;
+  max-width: 620px;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: #222;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.contact-btn:hover {
+  transform: translateY(-2px);
+  background: #f5835a;
+}
+
+body.dark-mode .contact-card {
+  background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+}
+
+body.dark-mode .contact-card h2,
+body.dark-mode .contact-copy {
+  color: #f9fafb;
+}
+
 .compare-section-header {
   display: flex;
   justify-content: center;
