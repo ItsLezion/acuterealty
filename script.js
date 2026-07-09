@@ -151,6 +151,7 @@
         setTimeout(() => triggerSectionPulse(targetId), 120);
       });
     });
+
     const compareButtons = document.querySelectorAll('.compare-btn');
     const compareList = document.getElementById('compare-list');
     const compareNavItem = document.querySelector('.nav-compare-item');
