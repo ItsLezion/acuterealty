@@ -130,6 +130,27 @@
       applyTheme(nextTheme);
     });
 
+
+    const sectionLinks = document.querySelectorAll('nav a[href^="#"]');
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+
+    function triggerSectionPulse(targetId) {
+      const targetSection = document.getElementById(targetId);
+      targetSection?.classList.remove('section-highlight');
+      void targetSection?.offsetWidth;
+      targetSection?.classList.add('section-highlight');
+    }
+
+    sectionLinks.forEach(link => {
+      link.addEventListener('click', event => {
+        const href = link.getAttribute('href');
+        const targetId = href?.replace('#', '');
+
+        if (!targetId) return;
+
+        setTimeout(() => triggerSectionPulse(targetId), 120);
+      });
+    });
     const compareButtons = document.querySelectorAll('.compare-btn');
     const compareList = document.getElementById('compare-list');
     const compareNavItem = document.querySelector('.nav-compare-item');
