@@ -131,6 +131,48 @@
     });
 
 
+    // ============================
+    // MOBILE HEADER HIDE / SHOW
+    // ============================
+    (function() {
+      let lastScrollY = window.scrollY;
+      const header = document.querySelector('header');
+      const threshold = 50;
+      let ticking = false;
+
+      function updateHeader() {
+        const currentScroll = window.scrollY;
+        const isMobile = window.innerWidth <= 820;
+        if (!header || !isMobile) {
+          header?.classList.remove('header-hidden');
+          ticking = false;
+          return;
+        }
+
+        if (currentScroll > lastScrollY + threshold && currentScroll > 120) {
+          header.classList.add('header-hidden');
+        } else if (currentScroll < lastScrollY - threshold || currentScroll <= 80) {
+          header.classList.remove('header-hidden');
+        }
+
+        lastScrollY = Math.max(currentScroll, 0);
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(updateHeader);
+          ticking = true;
+        }
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 820) {
+          header?.classList.remove('header-hidden');
+        }
+      });
+    })();
+
     const sectionLinks = document.querySelectorAll('nav a[href^="#"]');
     const sections = Array.from(document.querySelectorAll('section[id]'));
 
