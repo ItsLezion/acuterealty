@@ -194,6 +194,9 @@
       });
     });
 
+   // ============================
+    // PROPERTY COMPARE
+    // ============================
     const compareButtons = document.querySelectorAll('.compare-btn');
     const compareList = document.getElementById('compare-list');
     const compareNavItem = document.querySelector('.nav-compare-item');
@@ -343,7 +346,7 @@
       clearCompareBtn.disabled = selectedForCompare.size === 0;
       const compareSection = document.querySelector('.compare-section');
       compareSection?.classList.toggle('is-empty', selectedForCompare.size === 0);
-         renderCompareList();
+      renderCompareList();
     }
 
     function clearCompareSelection() {
@@ -367,7 +370,6 @@
       }, 450);
     }
 
-
     clearCompareBtn?.addEventListener('click', clearCompareSelection);
 
     compareButtons.forEach(button => {
@@ -377,8 +379,7 @@
         if (!card) return;
 
         const propertyId = card.dataset.id || card.querySelector('h2')?.textContent.trim();
-
-           if (selectedForCompare.has(propertyId)) {
+        if (selectedForCompare.has(propertyId)) {
           selectedForCompare.delete(propertyId);
           updateCompareControls();
           return;
@@ -389,13 +390,12 @@
           return;
         }
 
-
         selectedForCompare.add(propertyId);
         compareNavItem?.classList.remove('active');
         void compareNavItem?.offsetWidth;
         compareNavItem?.classList.add('active');
         updateCompareControls();
-          
+
         if (selectedForCompare.size === 2) {
           document.getElementById('compare')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
           const compareSection = document.querySelector('.compare-section');
