@@ -729,8 +729,13 @@ form button {
 }
 
 @media (max-width: 900px) {
-  .property-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .property-grid,
+  .land-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .thumbnail-row {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
@@ -738,25 +743,123 @@ form button {
   header {
     flex-direction: column;
     gap: 15px;
+        align-items: stretch;
+    padding: 18px 20px;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: space-between;
   }
 
   nav ul {
     flex-wrap: wrap;
     justify-content: center;
+        gap: 12px;
+  }
+
+  nav a {
+    padding: 8px 0;
+  }
+
+  .properties-section,
+  .land-section,
+  .compare-section,
+  .contact-section {
+    padding: 40px 18px;
   }
 
   .property-grid,
-  .land-grid {
-    grid-template-columns: 1fr;
-  }
-
+   .land-grid,
   #compare-list {
     grid-template-columns: 1fr;
   }
 
+   .property-card,
+  .land-card,
+  .saved-item,
+  .contact-card {
+    width: 100%;
+  }
+
+  .property-card,
+  .land-card {
+    margin: 0 auto;
+  }
+
+  .main-image {
+    height: 260px;
+  }
+
+  .thumbnail-row {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .property-map,
+  .land-map {
+    height: 200px;
+  }
+
+  .property-specs,
+  .land-specs {
+    grid-template-columns: 1fr;
+  }
+  
+  .spec-column {
+    text-align: left;
+    padding-left: 12px;
+  }
+
   .card-buttons {
     flex-direction: column;
-    gap: 10px;
+     gap: 12px;
+  }
+
+  .card-buttons button {
+    width: 100%;
+  }
+
+  .contact-card {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .contact-card > div {
+    width: 100%;
+  }
+
+  .contact-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .thumbnail-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .main-image {
+    height: 220px;
+  }
+
+  .property-details,
+  .land-details {
+    padding: 16px;
+  }
+
+  .card-buttons {
+    padding: 16px;
+  }
+
+  .filter-btn {
+    padding: 10px 12px;
+    margin: 6px 4px;
+  }
+
+  .contact-card {
+    padding: 24px 18px;
   }
 }
 
