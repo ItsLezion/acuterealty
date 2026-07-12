@@ -31,6 +31,15 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px 50px;
+   transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.header-hidden {
+  transform: translateY(-120%);
+}
+
+.header-hidden + * {
+  transition: padding-top 0.28s ease;
 }
 
 .logo {
