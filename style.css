@@ -559,7 +559,6 @@ body.dark-mode .dark-mode-toggle {
   padding: 60px 40px;
 }
 
-
 .compare-section.is-empty {
   display: none;
 }
@@ -573,9 +572,9 @@ body.dark-mode .dark-mode-toggle {
   margin: 0 auto;
   padding: 28px 32px;
   border-radius: 20px;
- background: linear-gradient(135deg, #fff6eb 0%, #fbe8d0 100%);
+  background: linear-gradient(135deg, #fff6eb 0%, #fbe8d0 100%);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-   border: 1px solid rgba(245, 131, 90, 0.18);
+  border: 1px solid rgba(245, 131, 90, 0.18);
 }
 
 .contact-eyebrow {
@@ -658,9 +657,83 @@ body.dark-mode .contact-copy {
 #favorites-list,
 #compare-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 15px;
   margin-top: 20px;
+}
+
+#compare-list.compare-two-columns {
+  grid-template-columns: 1fr 220px 1fr;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  #compare-list.compare-two-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.compare-bar {
+  display: grid;
+  gap: 18px;
+  padding: 18px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, #fff7ed 0%, #fff1e2 100%);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+.compare-bar-row {
+  display: grid;
+  gap: 12px;
+}
+
+.compare-bar-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #334155;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+.compare-bar-values {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.compare-value {
+  font-size: 0.95rem;
+  color: #334155;
+  text-align: center;
+}
+
+.compare-meter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 80px;
+  height: 12px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.compare-meter span {
+  display: block;
+  height: 100%;
+  background: #f5835a;
+  border-radius: inherit;
+}
+
+.compare-bar-status {
+  font-size: 0.8rem;
+  color: #475569;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .saved-item {
@@ -674,13 +747,139 @@ body.dark-mode .contact-copy {
   overflow: hidden;
 }
 
-.compare-card .card-buttons {
-  display: none;
+.compare-card-side {
+  background: white;
+  padding: 18px;
+  border-radius: 18px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.09);
 }
 
-.compare-card .property-map,
-.compare-card .land-map {
-  height: 180px;
+.compare-card-header {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.compare-card-header img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.compare-card-price {
+  color: #f5835a;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.compare-card-side h3 {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.compare-card-specs {
+  display: grid;
+  gap: 10px;
+}
+
+.compare-card-spec-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.compare-spec-label {
+  font-size: 0.9rem;
+  color: #475569;
+  font-weight: 600;
+}
+
+.compare-spec-value {
+  font-size: 0.9rem;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.compare-bar {
+  display: grid;
+  gap: 18px;
+  padding: 18px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, #fff7ed 0%, #fff1e2 100%);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+.compare-bar-row {
+  display: grid;
+  gap: 12px;
+}
+
+.compare-bar-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #334155;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+.compare-bar-values {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.compare-value {
+  font-size: 0.95rem;
+  color: #334155;
+  text-align: center;
+}
+
+.compare-meter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 80px;
+  height: 12px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.compare-meter span {
+  display: block;
+  height: 100%;
+  background: #f5835a;
+  border-radius: inherit;
+}
+
+.compare-bar-status {
+  font-size: 0.8rem;
+  color: #475569;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.compare-list.compare-two-columns {
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 900px) {
+  #compare-list.compare-two-columns {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* CONTACT */
@@ -752,7 +951,7 @@ form button {
   header {
     flex-direction: column;
     gap: 15px;
-        align-items: stretch;
+    align-items: stretch;
     padding: 18px 20px;
   }
 
@@ -764,7 +963,7 @@ form button {
   nav ul {
     flex-wrap: wrap;
     justify-content: center;
-        gap: 12px;
+    gap: 12px;
   }
 
   nav a {
@@ -779,12 +978,12 @@ form button {
   }
 
   .property-grid,
-   .land-grid,
+  .land-grid,
   #compare-list {
     grid-template-columns: 1fr;
   }
 
-   .property-card,
+  .property-card,
   .land-card,
   .saved-item,
   .contact-card {
@@ -814,7 +1013,7 @@ form button {
   .land-specs {
     grid-template-columns: 1fr;
   }
-  
+
   .spec-column {
     text-align: left;
     padding-left: 12px;
@@ -822,7 +1021,7 @@ form button {
 
   .card-buttons {
     flex-direction: column;
-     gap: 12px;
+    gap: 12px;
   }
 
   .card-buttons button {
@@ -906,7 +1105,7 @@ form button {
 
 
 footer {
- background: linear-gradient(135deg, #233142 0%, #1d2a38 100%);
+  background: linear-gradient(135deg, #233142 0%, #1d2a38 100%);
   color: white;
   padding: 20px 0;
   text-align: center;
@@ -925,7 +1124,7 @@ footer {
 }
 
 .socialIcons a {
-    display: inline-flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 48px;
@@ -940,12 +1139,11 @@ footer {
 }
 
 .socialIcons a i {
-    font-size: 1.25rem;
+  font-size: 1.25rem;
   transition: color 0.25s ease;
 }
 
-
- .socialIcons a:hover,
+.socialIcons a:hover,
 .socialIcons a:focus-visible {
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
