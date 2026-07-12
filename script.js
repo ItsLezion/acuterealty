@@ -194,137 +194,11 @@
       });
     });
 
-   // ============================
-    // PROPERTY COMPARE
-    // ============================
     const compareButtons = document.querySelectorAll('.compare-btn');
     const compareList = document.getElementById('compare-list');
     const compareNavItem = document.querySelector('.nav-compare-item');
     const clearCompareBtn = document.getElementById('clear-compare-btn');
     const selectedForCompare = new Set();
-
-    function getNumericValue(value) {
-      if (!value) return 0;
-      const cleaned = value.replace(/,/g, '').match(/\d+(?:\.\d+)?/g);
-      return cleaned ? parseFloat(cleaned.join('')) : 0;
-    }
-
-    function extractSpecs(card) {
-      const specElements = Array.from(card.querySelectorAll('.property-specs .spec-column p, .land-specs .spec-column p'));
-      return specElements.map(spec => {
-        const text = spec.textContent.trim();
-        const [labelPart, ...valueParts] = text.split(':');
-        const label = labelPart.trim();
-        const value = valueParts.join(':').trim();
-        const numeric = getNumericValue(value);
-        return { label, value, numeric };
-      });
-    }
-
-    function getCardData(card) {
-      const titleEl = card.querySelector('.property-details h2:last-of-type, .land-details h2:last-of-type');
-      const priceEl = card.querySelector('.price-band');
-      const imageEl = card.querySelector('.main-image');
-      const title = titleEl?.textContent.trim() || 'Property';
-      return {
-        id: card.dataset.id,
-        title,
-        price: priceEl?.textContent.trim() || '',
-        image: imageEl?.src || '',
-        specs: extractSpecs(card)
-      };
-    }
-
-    function createCompareSideCard(data) {
-      const sideCard = document.createElement('div');
-      sideCard.className = 'compare-card-side';
-      sideCard.innerHTML = `
-        <div class="compare-card-header">
-          <img src="${data.image}" alt="${data.title}" />
-          <div>
-            <p class="compare-card-price">${data.price}</p>
-            <h3>${data.title}</h3>
-          </div>
-        </div>
-      `;
-      const specList = document.createElement('div');
-      specList.className = 'compare-card-specs';
-      data.specs.forEach(spec => {
-        const row = document.createElement('div');
-        row.className = 'compare-card-spec-row';
-        row.innerHTML = `<span class="compare-spec-label">${spec.label}</span><span class="compare-spec-value">${spec.value}</span>`;
-        specList.appendChild(row);
-      });
-      sideCard.appendChild(specList);
-      return sideCard;
-    }
-
-    function buildCompareStats(left, right) {
-      const labels = Array.from(new Set([...left.specs.map(s => s.label), ...right.specs.map(s => s.label)]));
-      const compareBar = document.createElement('div');
-      compareBar.className = 'compare-bar';
-
-      labels.forEach(label => {
-        const leftSpec = left.specs.find(s => s.label === label) || { value: '—', numeric: 0 };
-        const rightSpec = right.specs.find(s => s.label === label) || { value: '—', numeric: 0 };
-        const total = leftSpec.numeric + rightSpec.numeric;
-        const leftPct = total > 0 ? Math.round((leftSpec.numeric / total) * 100) : 50;
-        const rightPct = 100 - leftPct;
-        let status = 'Even';
-        if (leftSpec.numeric > rightSpec.numeric) {
-          status = `${left.title} higher`;
-        } else if (rightSpec.numeric > leftSpec.numeric) {
-          status = `${right.title} higher`;
-        }
-
-        const row = document.createElement('div');
-        row.className = 'compare-bar-row';
-        row.innerHTML = `
-          <div class="compare-bar-title">${label}</div>
-          <div class="compare-bar-values">
-            <span class="compare-value">${leftSpec.value}</span>
-            <div class="compare-meter" aria-label="${label} comparison">
-              <span style="width: ${leftPct}%;"></span>
-            </div>
-            <span class="compare-value">${rightSpec.value}</span>
-          </div>
-          <div class="compare-bar-status">${status}</div>
-        `;
-
-        compareBar.appendChild(row);
-      });
-
-      return compareBar;
-    }
-
-    function renderCompareList() {
-      compareList.innerHTML = '';
-      compareList.classList.remove('compare-two-columns');
-
-      const compareIds = Array.from(selectedForCompare);
-      if (compareIds.length === 0) return;
-
-      const compareData = compareIds.map(id => {
-        const card = document.querySelector(`[data-id="${id}"]`);
-        return card ? getCardData(card) : null;
-      }).filter(Boolean);
-
-      if (compareData.length === 2) {
-        compareList.classList.add('compare-two-columns');
-        const leftCard = createCompareSideCard(compareData[0]);
-        const middleBar = buildCompareStats(compareData[0], compareData[1]);
-        const rightCard = createCompareSideCard(compareData[1]);
-        compareList.appendChild(leftCard);
-        compareList.appendChild(middleBar);
-        compareList.appendChild(rightCard);
-      } else {
-        compareData.forEach(data => {
-          const card = createCompareSideCard(data);
-          card.classList.add('compare-card-side');
-          compareList.appendChild(card);
-        });
-      }
-    }
 
     function syncCompareButtons() {
       compareButtons.forEach(button => {
@@ -346,7 +220,6 @@
       clearCompareBtn.disabled = selectedForCompare.size === 0;
       const compareSection = document.querySelector('.compare-section');
       compareSection?.classList.toggle('is-empty', selectedForCompare.size === 0);
-      renderCompareList();
     }
 
     function clearCompareSelection() {
@@ -361,6 +234,7 @@
       clearCompareBtn.textContent = 'Clearing...';
 
       window.setTimeout(() => {
+        compareList.innerHTML = '';
         selectedForCompare.clear();
         compareNavItem?.classList.remove('active');
         clearCompareBtn.textContent = 'Clear';
@@ -369,6 +243,7 @@
         updateCompareControls();
       }, 450);
     }
+
 
     clearCompareBtn?.addEventListener('click', clearCompareSelection);
 
@@ -379,7 +254,10 @@
         if (!card) return;
 
         const propertyId = card.dataset.id || card.querySelector('h2')?.textContent.trim();
-        if (selectedForCompare.has(propertyId)) {
+        const existingItem = compareList.querySelector(`[data-property-id="${propertyId}"]`);
+
+        if (existingItem) {
+          existingItem.remove();
           selectedForCompare.delete(propertyId);
           updateCompareControls();
           return;
@@ -390,12 +268,18 @@
           return;
         }
 
+        const compareItem = card.cloneNode(true);
+        compareItem.classList.add('saved-item', 'compare-card');
+        compareItem.dataset.propertyId = propertyId;
+        compareItem.querySelectorAll('.card-buttons').forEach(btn => btn.remove());
+
+        compareList.appendChild(compareItem);
         selectedForCompare.add(propertyId);
         compareNavItem?.classList.remove('active');
         void compareNavItem?.offsetWidth;
         compareNavItem?.classList.add('active');
         updateCompareControls();
-
+          
         if (selectedForCompare.size === 2) {
           document.getElementById('compare')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
           const compareSection = document.querySelector('.compare-section');
