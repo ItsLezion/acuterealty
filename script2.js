@@ -349,9 +349,9 @@
     function syncCompareButtons() {
       compareButtons.forEach(button => {
         const card = button.closest('.property-card, .land-card');
-        const cardId = card?.dataset.id;
+            const compareKey = card ? getCompareKey(card) : null;
 
-        if (cardId && selectedForCompare.has(cardId)) {
+        if (compareKey && selectedForCompare.has(compareKey)) {
           button.textContent = '✓ Added';
           button.classList.add('is-selected');
         } else {
