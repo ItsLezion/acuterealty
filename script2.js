@@ -214,8 +214,15 @@
 
     function getNumericValue(value) {
       if (!value) return 0;
-      const cleaned = value.replace(/,/g, '').match(/\d+(?:\.\d+)?/g);
-      return cleaned ? parseFloat(cleaned.join('')) : 0;
+      const lower = value.toLowerCase();
+      const numericMatch = lower.replace(/,/g, '').match(/\d+(?:\.\d+)?/g);
+      const baseValue = numericMatch ? parseFloat(numericMatch.join('')) : 0;
+
+      if (/acre/.test(lower)) {
+        return baseValue * 43560;
+      }
+
+      return baseValue;
     }
 
     function extractSpecs(card) {
@@ -251,9 +258,9 @@
       };
     }
 
-    function createCompareSideCard(data) {
+    function createCompareSideCard(data, side) {
       const sideCard = document.createElement('div');
-      sideCard.className = 'compare-card-side';
+           sideCard.className = `compare-card-side ${side}`;
       sideCard.innerHTML = `
         <div class="compare-card-header">
           <img src="${data.image}" alt="${data.title}" />
@@ -302,7 +309,8 @@
           <div class="compare-bar-values">
             <span class="compare-value compare-value-left ${leftWin ? 'winner' : ''} ${rightWin ? 'loser' : ''}">${leftSpec.value}</span>
             <div class="compare-meter" aria-label="${label} comparison">
-              <span style="width: ${leftPct}%;"></span>
+               <span class="meter-fill left-fill" style="width: ${leftPct}%;"></span>
+              <span class="meter-fill right-fill" style="width: ${rightPct}%;"></span>
             </div>
             <span class="compare-value compare-value-right ${rightWin ? 'winner' : ''} ${leftWin ? 'loser' : ''}">${rightSpec.value}</span>
           </div>
@@ -331,9 +339,9 @@
 
       if (compareData.length === 2) {
         compareList.classList.add('compare-two-columns');
-        const leftCard = createCompareSideCard(compareData[0]);
+       const leftCard = createCompareSideCard(compareData[0], 'left-card');
         const middleBar = buildCompareStats(compareData[0], compareData[1]);
-        const rightCard = createCompareSideCard(compareData[1]);
+        const rightCard = createCompareSideCard(compareData[1], 'right-card');
         compareList.appendChild(leftCard);
         compareList.appendChild(middleBar);
         compareList.appendChild(rightCard);
