@@ -714,22 +714,34 @@ body.dark-mode .contact-copy {
 }
 
 .compare-meter {
+    position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
   width: 100%;
   min-width: 80px;
-  height: 12px;
+  height: 14px;
   background: #e2e8f0;
   border-radius: 999px;
   overflow: hidden;
 }
 
-.compare-meter span {
-  display: block;
+.compare-meter .meter-fill {
+  position: absolute;
+  top: 0;
   height: 100%;
-  background: #f5835a;
-  border-radius: inherit;
+  border-radius: 999px;
+}
+
+.compare-meter .left-fill {
+  left: 0;
+  background: rgba(15, 157, 88, 0.85);
+  z-index: 1;
+}
+
+.compare-meter .right-fill {
+  right: 0;
+  background: rgba(211, 47, 47, 0.85);
+  z-index: 1;
 }
 
 .compare-bar-status {
@@ -756,6 +768,15 @@ body.dark-mode .contact-copy {
   padding: 18px;
   border-radius: 18px;
   box-shadow: 0 12px 28px rgba(0,0,0,0.09);
+   border: 2px solid transparent;
+}
+
+.compare-card-side.left-card {
+  border-color: rgba(15, 157, 88, 0.35);
+}
+
+.compare-card-side.right-card {
+  border-color: rgba(211, 47, 47, 0.35);
 }
 
 .compare-card-header {
