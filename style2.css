@@ -734,13 +734,13 @@ body.dark-mode .contact-copy {
 
 .compare-meter .left-fill {
   left: 0;
-  background: rgba(15, 157, 88, 0.85);
+  background: rgba(43, 130, 217, 0.85);
   z-index: 1;
 }
 
 .compare-meter .right-fill {
   right: 0;
-  background: rgba(211, 47, 47, 0.85);
+  background: rgba(255, 140, 66, 0.85);
   z-index: 1;
 }
 
