@@ -11,7 +11,7 @@ h1, h2, h3, h4, .logo-text, .contact-eyebrow {
 }
 
 body {
-  background: #f7f3eb;
+    background: linear-gradient(135deg, #fffaf5 0%, #f8eadf 48%, #f2d9c0 100%);
   color: #22313f;
   transition: background 0.3s ease, color 0.3s ease;
 }
@@ -32,6 +32,7 @@ header {
   align-items: center;
   padding: 20px 50px;
   transition: transform 0.28s ease, box-shadow 0.28s ease;
+    box-shadow: 0 10px 30px rgba(20, 33, 61, 0.2);
 }
 
 .header-hidden {
@@ -56,12 +57,14 @@ header {
   transform: translateX(0);
   opacity: 1;
   animation: brandSlideOut 10s ease forwards;
+   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .logo-image {
   height: 40px;
   width: auto;
   border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 @keyframes brandSlideOut {
@@ -126,18 +129,20 @@ nav a:focus-visible::after {
   align-items: center;
   gap: 8px;
   border: 1px solid rgba(255, 255, 255, 0.35);
-  background: #222;
+ background: rgba(255, 255, 255, 0.14);
   color: white;
   border-radius: 999px;
   padding: 8px 14px;
   cursor: pointer;
   font-weight: 600;
   transition: 0.3s;
+    backdrop-filter: blur(6px);
 }
 
 .dark-mode-toggle:hover {
   transform: translateY(-1px);
   filter: brightness(1.08);
+    background: rgba(255, 255, 255, 0.20);
 }
 
 nav a:hover {
@@ -250,50 +255,52 @@ body.dark-mode .dark-mode-toggle {
 /* PROPERTIES */
 .properties-section {
   padding: 60px 40px;
-  
+    background: linear-gradient(180deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.15) 100%);
 }
 
 .land-section {
   padding: 60px 40px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.08) 100%);
 }
 
-.properties-section h1 {
-  text-align: center;
-  margin-bottom: 40px;
-  font-size: 40px;
-}
 
+.properties-section h1,
 .land-section h1 {
   text-align: center;
   margin-bottom: 40px;
   font-size: 40px;
-}
-.property-filters {
-  text-align: center;
-  margin-bottom: 20px;
+  color: #14213d;
+  text-shadow: 0 2px 8px rgba(20, 33, 61, 0.08);
 }
 
+.property-filters,
 .land-filters {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 
 .filter-btn {
   display: inline-block;
-  padding: 8px 14px;
+  padding: 10px 16px;
   margin: 0 6px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  background: white;
+  border-radius: 999px;
+  border: 1px solid #f4c28b;
+  background: rgba(255, 255, 255, 0.9);
   cursor: pointer;
   font-weight: 600;
+    color: #3b3b3b;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-shadow: 0 8px 18px rgba(20, 33, 61, 0.06);
 }
 
+.filter-btn:hover,
 .filter-btn.active {
-  background: #222;
+background: linear-gradient(135deg, #f5835a, #e76f51);
   color: white;
-  border-color: #222;
+  border-color: #f5835a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(231, 111, 81, 0.2);
 }
 
 .property-grid {
@@ -304,6 +311,7 @@ body.dark-mode .dark-mode-toggle {
   margin: 0 auto;
 }
 
+.property-grid,
 .land-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -312,37 +320,29 @@ body.dark-mode .dark-mode-toggle {
   margin: 0 auto;
 }
 
-.property-card {
-  background: white;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-  position: relative;
-  transition: 0.3s;
-}
-
+.property-card,
 .land-card {
   background: white;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+   box-shadow: 0 16px 40px rgba(20, 33, 61, 0.12);
   position: relative;
   transition: 0.3s;
+  border: 1px solid rgba(20, 33, 61, 0.06);
 }
 
-.property-card:hover {
-  transform: translateY(-5px);
-}
 
+.property-card:hover,
 .land-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(20, 33, 61, 0.16);
 }
 
 .offer-band {
   position: absolute;
   top: 20px;
   right: -80px;
-  background: crimson;
+ background: linear-gradient(135deg, #d7263d, #a61b2d);
   color: white;
   padding: 10px 80px;
   transform: rotate(45deg);
@@ -355,12 +355,13 @@ body.dark-mode .dark-mode-toggle {
   position: absolute;
   top: 20px;
   left: -70px;
-  background: gold;
+ background: linear-gradient(135deg, #ffd166, #f4b942);
   color: #111;
   padding: 10px 70px;
   transform: rotate(-45deg);
   font-weight: bold;
   z-index: 5;
+   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
 .offer-band.active {
@@ -382,6 +383,7 @@ body.dark-mode .dark-mode-toggle {
   object-fit: cover;
   border-radius: 10px;
   cursor: pointer;
+    box-shadow: 0 10px 24px rgba(20, 33, 61, 0.12);
 }
 
 .image-nav-btn {
