@@ -25,7 +25,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: linear-gradient(135deg, #f5835a 0%, #e76f51 100%);
+  background: linear-gradient(135deg, #d8a87b, #b97f4f);
   color: white;
   display: flex;
   justify-content: space-between;
@@ -285,22 +285,22 @@ body.dark-mode .dark-mode-toggle {
   padding: 10px 16px;
   margin: 0 6px;
   border-radius: 999px;
-  border: 1px solid #f4c28b;
-  background: rgba(255, 255, 255, 0.9);
+   border: 1px solid rgba(23, 50, 74, 0.12);
+  background: rgba(255, 255, 255, 0.92);
   cursor: pointer;
-  font-weight: 600;
-    color: #3b3b3b;
+  font-weight: 700;
+  color: #4b5d6b;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
   box-shadow: 0 8px 18px rgba(20, 33, 61, 0.06);
 }
 
 .filter-btn:hover,
 .filter-btn.active {
-background: linear-gradient(135deg, #f5835a, #e76f51);
+  background: linear-gradient(135deg, #d8a87b, #b97f4f);
   color: white;
-  border-color: #f5835a;
+   border-color: #d8a87b;
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(231, 111, 81, 0.2);
+  box-shadow: 0 10px 20px rgba(185, 127, 79, 0.16);
 }
 
 .property-grid {
