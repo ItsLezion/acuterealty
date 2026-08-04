@@ -25,7 +25,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: linear-gradient(135deg, #d8a87b, #f09443);
+  background: linear-gradient(135deg, #d8a87b, #ee9271);
   color: white;
   display: flex;
   justify-content: space-between;
