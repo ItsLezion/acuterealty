@@ -909,25 +909,108 @@ form button {
 
 @media (max-width: 768px) {
   header {
+    position: sticky;
+    top: 0;
     flex-direction: column;
-    gap: 15px;
     align-items: stretch;
-    padding: 18px 20px;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .logo {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 1200;
+    padding: 10px 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 10px 24px rgba(20, 33, 61, 0.16);
+    backdrop-filter: blur(10px);
+  }
+
+  .logo-text {
+    font-size: 1rem;
+  }
+
+  .logo-image {
+    height: 28px;
   }
 
   .header-actions {
     width: 100%;
     justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+
+  nav {
+    position: fixed;
+    left: 50%;
+    bottom: 14px;
+    transform: translateX(-50%);
+    z-index: 1100;
+    width: min(92vw, 520px);
+    padding: 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 12px 30px rgba(20, 33, 61, 0.18);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(20, 33, 61, 0.08);
   }
 
   nav ul {
-    flex-wrap: wrap;
+    display: flex;
     justify-content: center;
-    gap: 12px;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 6px;
+  }
+
+  nav li {
+    flex: 1;
   }
 
   nav a {
-    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 8px;
+    border-radius: 999px;
+    color: #334155;
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+
+  nav a::after {
+    display: none;
+  }
+
+  nav a:hover,
+  nav a:focus-visible {
+    color: #17324a;
+    background: rgba(238, 146, 113, 0.16);
+  }
+
+  .nav-compare-item.active a {
+    background: linear-gradient(135deg, #ee9271, #d47a4e);
+    color: white;
+  }
+
+  .dark-mode-toggle {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    z-index: 1200;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.95);
+    color: #17324a;
+    box-shadow: 0 10px 24px rgba(20, 33, 61, 0.16);
+    border: 1px solid rgba(20, 33, 61, 0.08);
   }
 
   .properties-section,
