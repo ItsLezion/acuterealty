@@ -28,9 +28,9 @@
     // ============================
     // PROPERTY IMAGE NAVIGATION
     // ============================
-    const propertyImageContainers = document.querySelectorAll('.property-image-container');
+    const galleryContainers = document.querySelectorAll('.property-image-container, .land-image-container');
 
-    propertyImageContainers.forEach(container => {
+   galleryContainers.forEach(container => {
       const mainImage = container.querySelector('.main-image');
       const thumbnails = Array.from(container.querySelectorAll('.thumbnail-row img'));
 
@@ -65,6 +65,30 @@
         });
       }
 
+           if (window.innerWidth <= 768) {
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        function handleSwipe() {
+          const swipeDistance = touchEndX - touchStartX;
+          if (Math.abs(swipeDistance) < 50) return;
+
+          if (swipeDistance < 0) {
+            updateActiveImage(activeIndex + 1);
+          } else {
+            updateActiveImage(activeIndex - 1);
+          }
+        }
+
+        container.addEventListener('touchstart', event => {
+          touchStartX = event.changedTouches[0].screenX;
+        }, { passive: true });
+
+        container.addEventListener('touchend', event => {
+          touchEndX = event.changedTouches[0].screenX;
+          handleSwipe();
+        }, { passive: true });
+      }
       prevButton.addEventListener('click', event => {
         event.stopPropagation();
         updateActiveImage(activeIndex - 1);
