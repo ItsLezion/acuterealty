@@ -44,11 +44,13 @@ header {
 }
 
 .logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 10px;
   font-size: 28px;
   font-weight: bold;
+    text-decoration: none;
+  color: inherit;
 }
 
 .logo-text {
@@ -368,13 +370,11 @@ body.dark-mode .dark-mode-toggle {
   display: block;
 }
 
-.property-image-container {
-  padding: 15px;
-  position: relative;
-}
-
+.property-image-container,
 .land-image-container {
   padding: 15px;
+  position: relative;
+  touch-action: pan-y;
 }
 
 .main-image {
