@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acute Realty | Barbados Real Estate, Homes, Land & Property Listings</title>
+    <meta
+      name="description"
+      content="Acute Realty - Find homes, land and investment properties across Barbados."
+    />
+    <meta
+      name="keywords"
+      content="Barbados real estate, homes for sale Barbados, land for sale Barbados, property listings Barbados, Acute Realty"
+    />
+    <meta name="author" content="Acute Realty" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Acute Realty | Barbados Homes, Land & Property Listings" />
+    <meta
+      property="og:description"
+      content="Browse homes and land for sale in Barbados with Acute Realty."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="logo.jpeg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Acute Realty | Barbados Homes, Land & Property Listings" />
+    <meta
+      name="twitter:description"
+      content="Browse homes and land for sale in Barbados with Acute Realty."
+    />
+    <meta name="twitter:image" content="logo.jpeg" />
+    <link rel="icon" type="image/x-icon" href="logo.jpeg" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/hero-slideshow.css" />
+    <link rel="stylesheet" href="css/property-features.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="logo" href="index.html" aria-label="Acute Realty home">
+          <img class="logo-image" src="assets/logo.jpeg" alt="Acute Realty" />
+        </a>
+
+        <button class="menu-toggle" aria-label="Open navigation">☰</button>
+
+        <nav class="nav">
+          <a href="index.html" class="active">Home</a>
+          <a href="properties.html">Properties</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+          <a href="favorites.html" class="nav-fav">♡ Favorites <b id="favCount">0</b></a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-slideshow" aria-hidden="true"></div>
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-content">
+          <p class="eyebrow">BARBADOS REAL ESTATE</p>
+          <h1>
+            Find a place<br />
+            <em>you'll love to call home.</em>
+          </h1>
+          <p class="hero-text">
+            Discover carefully selected homes, apartments, land and investment opportunities
+            across Barbados.
+          </p>
+
+          <form class="search-panel" id="heroSearch">
+            <div>
+              <label>Looking for</label>
+              <select id="heroType">
+                <option value="all">Any property</option>
+                <option value="house">House</option>
+                <option value="apartment">Apartment</option>
+                <option value="land">Land</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Location</label>
+              <select id="heroLocation">
+                <option value="all">Any location</option>
+                <option>Christ Church</option>
+                <option>St. Michael</option>
+                <option>St. James</option>
+                <option>St. Philip</option>
+                <option>St. George</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Budget</label>
+              <select id="heroPrice">
+                <option value="all">Any price</option>
+                <option value="250000">Under BDS $250K</option>
+                <option value="500000">Under BDS $500K</option>
+                <option value="1000000">Under BDS $1M</option>
+              </select>
+            </div>
+
+            <button class="btn btn-dark" type="submit">Search Properties →</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="section" id="properties">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">EXPLORE</p>
+              <h2>Featured properties</h2>
+            </div>
+            <a class="text-link" href="properties.html">View all properties →</a>
+          </div>
+
+          <div class="property-grid" id="featuredGrid"></div>
+        </div>
+      </section>
+
+      <section class="section light" id="services">
+        <div class="container">
+          <div class="section-heading center">
+            <div>
+              <p class="eyebrow">OUR SERVICES</p>
+              <h2>More than a property search</h2>
+            </div>
+          </div>
+
+          <div class="service-grid">
+            <article>
+              <a href="properties.html">
+                <span>01</span>
+                <h3>Buy a Property</h3>
+                <p>Search homes, apartments and land with a simple property discovery experience.</p>
+              </a>
+            </article>
+            <article>
+              <a href="contact.html">
+                <span>02</span>
+                <h3>Sell Your Property</h3>
+                <p>Present your property professionally and connect with qualified prospective buyers.</p>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta" id="contact">
+        <div class="container">
+          <p class="eyebrow">LET'S TALK</p>
+          <h2>Have a property in mind?</h2>
+          <p>
+            Tell Acute Realty what you're looking for and we'll help you take the next step.
+          </p>
+          <a class="btn btn-light" href="#" data-email-action>Contact Acute Realty →</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <a class="logo footer-logo" href="index.html">
+            <span>ACUTE</span>
+            <small>REALTY</small>
+          </a>
+          <p>Barbados real estate.</p>
+        </div>
+
+        <div>
+          <h4>Explore</h4>
+          <a href="properties.html">Properties</a>
+          <a href="#services">Services</a>
+        </div>
+
+        <div>
+          <h4>Contact</h4>
+          <p>Barbados</p>
+          <p>+1 (246) 231-9923</p>
+          <p>+1 (246) 289-6200</p>
+          <a href="#" data-email-action>Email Acute Realty</a>
+        </div>
+      </div>
+      <div class="copyright">© 2026 Acute Realty. All rights reserved.</div>
+    </footer>
+
+    <script src="js/properties.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

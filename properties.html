@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Properties | Acute Realty</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/property-features.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="logo" href="index.html" aria-label="Acute Realty home">
+          <img class="logo-image" src="assets/logo.jpeg" alt="Acute Realty" />
+        </a>
+
+        <button class="menu-toggle" aria-label="Open navigation">☰</button>
+
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a class="active" href="properties.html">Properties</a>
+          <a href="index.html#services">Services</a>
+          <a href="contact.html">Contact</a>
+          <a href="favorites.html">♡ Favorites <b id="favCount">0</b></a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <p class="eyebrow">ACUTE REALTY</p>
+          <h1>Find your next property.</h1>
+          <p>Browse our current selection across Barbados.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="filter-bar">
+            <select id="filterType">
+              <option value="all">All property types</option>
+              <option value="house">Houses</option>
+              <option value="apartment">Apartments</option>
+              <option value="land">Land</option>
+            </select>
+
+            <select id="filterLocation">
+              <option value="all">All locations</option>
+              <option>Christ Church</option>
+              <option>St. Michael</option>
+              <option>St. James</option>
+              <option>St. Philip</option>
+              <option>St. George</option>
+              <option>St. Joseph</option>
+            </select>
+
+            <select id="filterPrice">
+              <option value="all">Any price</option>
+              <option value="250000">Under BDS $250K</option>
+              <option value="500000">Under BDS $500K</option>
+              <option value="1000000">Under BDS $1M</option>
+            </select>
+
+            <select id="filterBeds">
+              <option value="all">Any bedrooms</option>
+              <option value="2">2+ bedrooms</option>
+              <option value="3">3+ bedrooms</option>
+              <option value="4">4+ bedrooms</option>
+            </select>
+          </div>
+
+          <div class="results-line">
+            <span id="resultCount"></span>
+            <a href="#" id="clearFilters">Clear filters</a>
+          </div>
+
+          <div class="property-grid" id="propertyGrid"></div>
+
+          <section class="compare-section" id="compare">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">SIDE BY SIDE</p>
+                <h2>Compare properties</h2>
+              </div>
+              <button class="compare-clear" id="clearCompare" type="button" disabled>
+                Clear
+              </button>
+            </div>
+            <div class="compare-list" id="compareList"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="copyright">© 2026 Acute Realty. All rights reserved.</div>
+    </footer>
+
+    <script src="js/properties.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
